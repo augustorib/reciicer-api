@@ -1,7 +1,7 @@
-using Reciicer.Repository.Interface;
-using Entities = Reciicer.Models.Entities;
+using ReciicerAPI.Repository.Interface;
+using Entities = ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Service.ClientePremiacao
+namespace ReciicerAPI.Service.ClientePremiacao
 {
     public class ClientePremiacaoService
     {

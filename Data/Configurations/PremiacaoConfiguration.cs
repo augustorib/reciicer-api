@@ -2,9 +2,9 @@
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Reciicer.Models.Entities;
+using ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Data.Configurations
+namespace ReciicerAPI.Data.Configurations
 {
     public class PremiacaoConfiguration : IEntityTypeConfiguration<Premiacao>
     {

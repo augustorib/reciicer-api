@@ -1,12 +1,12 @@
-using Reciicer.Data.Seed;
-using Reciicer.Data.Configurations;
+using ReciicerAPI.Data.Seed;
+using ReciicerAPI.Data.Configurations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Reciicer.Models.Entities;
-using Reciicer.Service.Audit;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Service.Audit;
 
 
-namespace Reciicer.Data
+namespace ReciicerAPI.Data
 {
     public class AppDbContext : IdentityDbContext<UsuarioIdentity>
     {

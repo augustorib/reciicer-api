@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Service.Cliente;
+using ReciicerAPI.Service.Cliente;
 using FastReport;
 using FastReport.Export.PdfSimple;
 using Microsoft.AspNetCore.Authorization;
-using Reciicer.Service.Relatorio;
+using ReciicerAPI.Service.Relatorio;
 
 
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class RelatorioController : Controller

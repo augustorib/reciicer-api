@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Models.Entities;
-using Reciicer.Models.RecolhimentoViewModels;
-using Reciicer.Service.Cooperativa;
-using Reciicer.Service.Estoque;
-using Reciicer.Service.EstoqueMaterial;
-using Reciicer.Service.Recolhimento;
-using Reciicer.Service.RecolhimentoEstoqueMaterial;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Models.RecolhimentoViewModels;
+using ReciicerAPI.Service.Cooperativa;
+using ReciicerAPI.Service.Estoque;
+using ReciicerAPI.Service.EstoqueMaterial;
+using ReciicerAPI.Service.Recolhimento;
+using ReciicerAPI.Service.RecolhimentoEstoqueMaterial;
 
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     public class RecolhimentoController : Controller
     {

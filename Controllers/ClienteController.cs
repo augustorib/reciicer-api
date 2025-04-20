@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Models.Entities;
-using Reciicer.Service.Cliente;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Service.Cliente;
 using ReciicerAPI.Models.DTOs.Cliente;
 using ReciicerAPI.Models.DTOs.Coleta;
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     [ApiController]
     [Route("api/clientes")]

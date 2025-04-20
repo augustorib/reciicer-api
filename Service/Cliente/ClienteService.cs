@@ -1,11 +1,11 @@
 using System.Globalization;
-using Reciicer.Models.HomeViewModels;
-using Reciicer.Repository.Interface;
-using Reciicer.Service.UsuarioIdentity;
-using  Entities = Reciicer.Models.Entities;
+using ReciicerAPI.Models.HomeViewModels;
+using ReciicerAPI.Repository.Interface;
+using ReciicerAPI.Service.UsuarioIdentity;
+using  Entities = ReciicerAPI.Models.Entities;
 
 
-namespace Reciicer.Service.Cliente
+namespace ReciicerAPI.Service.Cliente
 {
     public class ClienteService 
     {

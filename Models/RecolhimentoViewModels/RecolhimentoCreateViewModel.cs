@@ -1,6 +1,6 @@
-using Reciicer.Models.Entities;
+using ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Models.RecolhimentoViewModels
+namespace ReciicerAPI.Models.RecolhimentoViewModels
 {
     public class RecolhimentoCreateViewModel
     {

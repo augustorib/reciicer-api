@@ -1,7 +1,7 @@
-using Reciicer.Repository.Interface;
-using Entities = Reciicer.Models.Entities;
+using ReciicerAPI.Repository.Interface;
+using Entities = ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Service.PontoColeta
+namespace ReciicerAPI.Service.PontoColeta
 {
     public class PontoColetaService
     {

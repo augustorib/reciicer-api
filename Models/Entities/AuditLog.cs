@@ -1,5 +1,5 @@
 
-namespace Reciicer.Models.Entities
+namespace ReciicerAPI.Models.Entities
 {
     public class AuditLog
     {

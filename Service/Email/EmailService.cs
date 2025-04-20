@@ -1,8 +1,8 @@
 using System.Net;
 using System.Net.Mail;
-using Reciicer.Repository.Interface;
+using ReciicerAPI.Repository.Interface;
 
-namespace Reciicer.Service.Email
+namespace ReciicerAPI.Service.Email
 {
     public class EmailService : IEmailService
     {

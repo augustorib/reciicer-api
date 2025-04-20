@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Models.Entities;
-using Reciicer.Models.LoginViewModels;
-using Reciicer.Service.PontoColeta;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Models.LoginViewModels;
+using ReciicerAPI.Service.PontoColeta;
 using System.Security.Claims;
 
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     public class LoginController : Controller
     {

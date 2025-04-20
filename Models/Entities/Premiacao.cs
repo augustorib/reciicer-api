@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Reciicer.Models.Entities
+namespace ReciicerAPI.Models.Entities
 {
     public class Premiacao : EntidadeBase
     {   

@@ -1,7 +1,7 @@
 using System.Net;
 
 
-namespace Reciicer.Service.Error
+namespace ReciicerAPI.Service.Error
 {
     public class ErrorHandlingService
     {

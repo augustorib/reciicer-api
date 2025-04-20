@@ -1,15 +1,15 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Models.ColetaViewModels;
-using Reciicer.Models.Entities;
-using Reciicer.Service.Coleta;
-using Reciicer.Service.Estoque;
-using Reciicer.Service.Material;
-using Reciicer.Service.Material_Coleta;
+using ReciicerAPI.Models.ColetaViewModels;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Service.Coleta;
+using ReciicerAPI.Service.Estoque;
+using ReciicerAPI.Service.Material;
+using ReciicerAPI.Service.Material_Coleta;
 
 
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     
     public class ColetaController : Controller

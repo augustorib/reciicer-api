@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Models.Entities;
-using Reciicer.Service.Endereco;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Service.Endereco;
 
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     
     public class EnderecoController : Controller

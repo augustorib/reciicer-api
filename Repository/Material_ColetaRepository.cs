@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using Reciicer.Data;
-using Reciicer.Models.Entities;
-using Reciicer.Repository.Interface;
+using ReciicerAPI.Data;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Repository.Interface;
 
-namespace Reciicer.Repository
+namespace ReciicerAPI.Repository
 {
     public class Material_ColetaRepository : IMaterial_ColetaRepository
     {

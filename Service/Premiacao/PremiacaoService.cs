@@ -1,10 +1,10 @@
-using Reciicer.Models.ClienteViewModels;
-using Reciicer.Repository.Interface;
-using Reciicer.Service.Cliente;
-using Reciicer.Service.ClientePremiacao;
-using Entities = Reciicer.Models.Entities;
+using ReciicerAPI.Models.ClienteViewModels;
+using ReciicerAPI.Repository.Interface;
+using ReciicerAPI.Service.Cliente;
+using ReciicerAPI.Service.ClientePremiacao;
+using Entities = ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Service.Premiacao
+namespace ReciicerAPI.Service.Premiacao
 {
     public class PremiacaoService
     {

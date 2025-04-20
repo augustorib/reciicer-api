@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Models.Entities;
-using Reciicer.Service.PontoColeta;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Service.PontoColeta;
 
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     
     [Authorize(Roles = "Admin")]

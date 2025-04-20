@@ -1,6 +1,6 @@
 
 
-namespace Reciicer.Models.RelatorioViewModels
+namespace ReciicerAPI.Models.RelatorioViewModels
 {
     public class RecolhimentoReport
     {

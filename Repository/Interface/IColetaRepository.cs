@@ -1,8 +1,8 @@
 
 
-using Reciicer.Models.Entities;
+using ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Repository.Interface
+namespace ReciicerAPI.Repository.Interface
 {
     public interface IColetaRepository
     {

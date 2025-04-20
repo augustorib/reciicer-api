@@ -1,8 +1,8 @@
-using Reciicer.Models.Entities;
+using ReciicerAPI.Models.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 
-namespace Reciicer.Data.Configurations
+namespace ReciicerAPI.Data.Configurations
 {
     public class EstoqueConfiguration : IEntityTypeConfiguration<Estoque>
     {

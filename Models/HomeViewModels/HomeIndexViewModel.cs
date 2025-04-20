@@ -1,6 +1,6 @@
-using Reciicer.Models.Entities;
+using ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Models.HomeViewModels
+namespace ReciicerAPI.Models.HomeViewModels
 {
     public class HomeIndexViewModel
     {

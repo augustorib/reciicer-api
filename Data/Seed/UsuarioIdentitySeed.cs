@@ -1,9 +1,9 @@
-using Reciicer.Models.Entities;
+using ReciicerAPI.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
-namespace Reciicer.Data.Seed
+namespace ReciicerAPI.Data.Seed
 {
     public static class UsuarioIdentitySeed
     {

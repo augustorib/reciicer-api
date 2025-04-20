@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Models.Entities;
-using Reciicer.Service.Cooperativa;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Service.Cooperativa;
 
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     
     public class CooperativaController : Controller

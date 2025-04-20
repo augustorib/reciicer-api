@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Models.Entities;
-using Reciicer.Models.MaterialViewModels;
-using Reciicer.Service.Material;
-using Reciicer.Service.TipoMaterial;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Models.MaterialViewModels;
+using ReciicerAPI.Service.Material;
+using ReciicerAPI.Service.TipoMaterial;
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     
     public class MaterialController : Controller

@@ -1,8 +1,8 @@
-using Reciicer.Data;
-using Reciicer.Repository.Interface;
-using Entities = Reciicer.Models.Entities;
+using ReciicerAPI.Data;
+using ReciicerAPI.Repository.Interface;
+using Entities = ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Repository
+namespace ReciicerAPI.Repository
 {
     public class EnderecoRepository: IEnderecoRepository
     {

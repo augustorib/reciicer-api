@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Newtonsoft.Json;
-using Reciicer.Models.Entities;
+using ReciicerAPI.Models.Entities;
 
 using System.Security.Claims;
 
-namespace Reciicer.Service.Audit
+namespace ReciicerAPI.Service.Audit
 {
     public class AuditService
     {

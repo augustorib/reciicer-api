@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace Reciicer.Models.Entities
+namespace ReciicerAPI.Models.Entities
 {
     public class UsuarioIdentity : IdentityUser
     {

@@ -1,8 +1,8 @@
 using System.ComponentModel;
-using Reciicer.Models.Entities;
+using ReciicerAPI.Models.Entities;
 
 
-namespace Reciicer.Models.ColetaViewModels
+namespace ReciicerAPI.Models.ColetaViewModels
 {
     public class ColetaCreateViewModel
     {

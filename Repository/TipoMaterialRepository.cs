@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using Reciicer.Data;
-using Reciicer.Models.Entities;
-using Reciicer.Models.HomeViewModels;
-using Reciicer.Repository.Interface;
+using ReciicerAPI.Data;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Models.HomeViewModels;
+using ReciicerAPI.Repository.Interface;
 
-namespace Reciicer.Repository
+namespace ReciicerAPI.Repository
 {
     public class TipoMaterialRepository : ITipoMaterialRepository
     {

@@ -1,4 +1,4 @@
-namespace Reciicer.Models;
+namespace ReciicerAPI.Models;
 
 public class ErrorViewModel
 {

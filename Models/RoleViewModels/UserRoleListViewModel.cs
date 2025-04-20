@@ -1,6 +1,6 @@
 
 
-namespace Reciicer.Models.RoleViewModels
+namespace ReciicerAPI.Models.RoleViewModels
 {
     public class UserRoleListViewModel
     {

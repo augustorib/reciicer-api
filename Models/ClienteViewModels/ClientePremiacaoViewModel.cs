@@ -1,6 +1,6 @@
-using Reciicer.Models.Entities;
+using ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Models.ClienteViewModels
+namespace ReciicerAPI.Models.ClienteViewModels
 {
     public class ClientePremiacaoViewModel
     {
