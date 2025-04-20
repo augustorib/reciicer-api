@@ -2,12 +2,13 @@ using Microsoft.AspNetCore.Mvc;
 using Reciicer.Models.Entities;
 using Reciicer.Service.Cliente;
 using ReciicerAPI.Models.DTOs.Cliente;
+using ReciicerAPI.Models.DTOs.Coleta;
 
 namespace Reciicer.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class ClienteController : Controller
+    [Route("api/clientes")]
+    public class ClienteController : ControllerBase
     {
         private readonly ClienteService _clienteService; 
 
@@ -19,7 +20,7 @@ namespace Reciicer.Controllers
             
         }
 
-        [HttpGet("Index")]
+        [HttpGet]
         public IActionResult Index()
         {
             var clientes = _clienteService.ListarCliente();
@@ -58,7 +59,7 @@ namespace Reciicer.Controllers
 
             _clienteService.RegistrarCliente(cliente);
 
-            return Content("Cliente cadastrado com sucesso!");
+            return Created($"/api/clientes/{cliente.Id}", cliente);
          }
 
         [HttpGet("{id}")]
@@ -105,6 +106,32 @@ namespace Reciicer.Controllers
             _clienteService.ExcluirCliente(id);
 
             return NoContent();
+        }
+
+        [HttpGet("{id}/coletas")]
+        public IActionResult ClienteColetas(int id)
+        {
+            var cliente = _clienteService.ObterClientePorId(id);
+            
+            var coletas = cliente.Coletas!.Select(c => new ColetaBaseDTO
+            {
+                Id = c.Id,
+                DataOperacao = c.DataOperacao,
+                PontuacaoGanha = c.PontuacaoGanha,
+
+            }).ToList();
+
+            var clienteResponse = new ClienteColetasDTO
+            {
+                Id = cliente.Id,
+                Nome = cliente.Nome,
+                Email = cliente.Email,
+                Telefone = cliente.Telefone,
+                CPF = cliente.CPF,
+                Coletas = coletas
+            };
+
+            return Ok(clienteResponse);
         }
 
         // [HttpGet]

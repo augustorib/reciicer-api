@@ -18,7 +18,7 @@ namespace Reciicer.Data
             _auditService = auditService;
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {   
             
             base.OnModelCreating(modelBuilder);

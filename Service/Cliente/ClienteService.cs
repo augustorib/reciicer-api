@@ -115,5 +115,10 @@ namespace Reciicer.Service.Cliente
              return clientesPorMes;
          }
 
+         public Entities.Cliente clienteColetas(int id)
+         {
+            return _clienteRepository.ObterClientePorId(id);
+         }
+
     }
 }
