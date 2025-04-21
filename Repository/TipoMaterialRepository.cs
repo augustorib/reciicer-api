@@ -1,3 +1,4 @@
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using ReciicerAPI.Data;
 using ReciicerAPI.Models.Entities;
@@ -59,35 +60,33 @@ namespace ReciicerAPI.Repository
 
         public IEnumerable<TipoMaterialQuantidadeChart> ObterNomeQuantidadeTipoMaterialGrafico(int anoDashboard)
         {
-            var sql = MontarQueryGrafico(0);
+            var sql = MontarQueryGrafico();
 
-            var result = _context.Database.SqlQueryRaw<TipoMaterialQuantidadeChart>(sql, anoDashboard).ToList();
+            var result = _context.Database.SqlQueryRaw<TipoMaterialQuantidadeChart>(sql, new SqlParameter("@AnoDashboard", anoDashboard)).ToList();
             
             return result;
         }
 
         public IEnumerable<TipoMaterialQuantidadeChart> ObterNomeQuantidadeTipoMaterialGrafico(int anoDashboard, int pontoColetaId)
         {
-            var sql = MontarQueryGrafico(pontoColetaId);
+            var sql = MontarQueryGrafico();
 
-            var result = _context.Database.SqlQueryRaw<TipoMaterialQuantidadeChart>(sql, anoDashboard, pontoColetaId).ToList();
+            var result = _context.Database.SqlQueryRaw<TipoMaterialQuantidadeChart>(sql, new SqlParameter("@AnoDashboard", anoDashboard), new SqlParameter("@PontoColetaId", pontoColetaId)).ToList();
             
             return result;
         }
 
-        private string MontarQueryGrafico(int? pontoColetaId)
+        private string MontarQueryGrafico()
         {
-            var filtroPontoColeta = pontoColetaId > 0 ? "AND C.PontoColetaId = {1}" : string.Empty;
-
             var sql = @"Select 
                             TM.Id, TM.Nome AS TipoMaterialNome, Count(MC.Id) AS Quantidade
                         FROM 
                             Coleta C
                             JOIN Material_Coleta MC ON C.Id = MC.ColetaId 
-                                AND Year(C.DataOperacao) = {0}
-                                "+ filtroPontoColeta + @"
+                                AND Year(C.DataOperacao) = @AnoDashboard
                             JOIN Material M ON Mc.MaterialId = M.Id
-                            JOIN TipoMaterial TM ON tm.Id = M.TipoMaterialId										
+                            JOIN TipoMaterial TM ON tm.Id = M.TipoMaterialId
+                        WHERE(@PontoColetaId = 0 OR C.PontoColetaId = @PontoColetaId))										
                         GROUP BY
                             TM.Nome, TM.id
                         ORDER BY 
