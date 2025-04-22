@@ -7,6 +7,5 @@ namespace ReciicerAPI.Models.DTOs.Cliente
     {
        [JsonPropertyOrder(10)]
        public IEnumerable<ColetaBaseDTO>? Coletas { get; set; } 
-       public int Id { get; set; }
     }
 }

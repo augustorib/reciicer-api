@@ -30,41 +30,41 @@ using ReciicerAPI.Service.Audit;
 var builder = WebApplication.CreateBuilder(args);
 
 //Repository Interface
-builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
-builder.Services.AddScoped<IPremiacaoRepository, PremiacaoRepository>();
-builder.Services.AddScoped<IMaterialRepository, MaterialRepository>();
-builder.Services.AddScoped<ITipoMaterialRepository, TipoMaterialRepository>();
-builder.Services.AddScoped<IColetaRepository, ColetaRepository>();
-builder.Services.AddScoped<IMaterial_ColetaRepository, Material_ColetaRepository>();
-builder.Services.AddScoped<IPontoColetaRepository, PontoColetaRepository>();
-builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
-builder.Services.AddScoped<IClientePremiacaoRepository, ClientePremiacaoRepository>();
-builder.Services.AddScoped<ICooperativaRepository, CooperativaRepository>();
-builder.Services.AddScoped<IRecolhimentoRepository, RecolhimentoRepository>();
-builder.Services.AddScoped<IRecolhimentoEstoqueMaterialRepository, RecolhimentoEstoqueMaterialRepository>();
-builder.Services.AddScoped<IEstoqueRepository, EstoqueRepository>();
-builder.Services.AddScoped<IEstoqueMaterialRepository, EstoqueMaterialRepository>();
+builder.Services.AddTransient<IClienteRepository, ClienteRepository>();
+builder.Services.AddTransient<IPremiacaoRepository, PremiacaoRepository>();
+builder.Services.AddTransient<IMaterialRepository, MaterialRepository>();
+builder.Services.AddTransient<ITipoMaterialRepository, TipoMaterialRepository>();
+builder.Services.AddTransient<IColetaRepository, ColetaRepository>();
+builder.Services.AddTransient<IMaterial_ColetaRepository, Material_ColetaRepository>();
+builder.Services.AddTransient<IPontoColetaRepository, PontoColetaRepository>();
+builder.Services.AddTransient<IEnderecoRepository, EnderecoRepository>();
+builder.Services.AddTransient<IClientePremiacaoRepository, ClientePremiacaoRepository>();
+builder.Services.AddTransient<ICooperativaRepository, CooperativaRepository>();
+builder.Services.AddTransient<IRecolhimentoRepository, RecolhimentoRepository>();
+builder.Services.AddTransient<IRecolhimentoEstoqueMaterialRepository, RecolhimentoEstoqueMaterialRepository>();
+builder.Services.AddTransient<IEstoqueRepository, EstoqueRepository>();
+builder.Services.AddTransient<IEstoqueMaterialRepository, EstoqueMaterialRepository>();
 
 //Services
-builder.Services.AddScoped<ClienteService>();
-builder.Services.AddScoped<PremiacaoService>();
-builder.Services.AddScoped<MaterialService>();
-builder.Services.AddScoped<TipoMaterialService>();
-builder.Services.AddScoped<ColetaService>();
-builder.Services.AddScoped<Material_ColetaService>();
-builder.Services.AddScoped<PontoColetaService>();
-builder.Services.AddScoped<EnderecoService>();
-builder.Services.AddScoped<ClientePremiacaoService>();
-builder.Services.AddScoped<UsuarioIdentityService>();
-builder.Services.AddScoped<CooperativaService>();
-builder.Services.AddScoped<RecolhimentoService>();
-builder.Services.AddScoped<EstoqueService>();
-builder.Services.AddScoped<EstoqueMaterialService>();
-builder.Services.AddScoped<RecolhimentoEstoqueMaterialService>();
-builder.Services.AddScoped<RelatorioService>();
-builder.Services.AddScoped<ErrorHandlingService>();
-builder.Services.AddScoped<AuditService>();
-builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddTransient<ClienteService>();
+builder.Services.AddTransient<PremiacaoService>();
+builder.Services.AddTransient<MaterialService>();
+builder.Services.AddTransient<TipoMaterialService>();
+builder.Services.AddTransient<ColetaService>();
+builder.Services.AddTransient<Material_ColetaService>();
+builder.Services.AddTransient<PontoColetaService>();
+builder.Services.AddTransient<EnderecoService>();
+builder.Services.AddTransient<ClientePremiacaoService>();
+builder.Services.AddTransient<UsuarioIdentityService>();
+builder.Services.AddTransient<CooperativaService>();
+builder.Services.AddTransient<RecolhimentoService>();
+builder.Services.AddTransient<EstoqueService>();
+builder.Services.AddTransient<EstoqueMaterialService>();
+builder.Services.AddTransient<RecolhimentoEstoqueMaterialService>();
+builder.Services.AddTransient<RelatorioService>();
+builder.Services.AddTransient<ErrorHandlingService>();
+builder.Services.AddTransient<AuditService>();
+builder.Services.AddTransient<IEmailService, EmailService>();
 
 
 // Add services to the container.

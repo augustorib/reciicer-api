@@ -25,7 +25,7 @@ namespace ReciicerAPI.Repository
 
         public Cliente ObterClientePorId(int id)
         {
-            return _context.Cliente.Include(c => c.Coletas).FirstOrDefault(c => c.Id == id);
+            return _context.Cliente.Include(c => c.Coletas).FirstOrDefault(c => c.Id == id)!;
         }
 
         public void RegistrarCliente(Cliente model)
@@ -38,7 +38,7 @@ namespace ReciicerAPI.Repository
         public Cliente DetalharCliente(int id)
         {
            
-            var clienteBD = _context.Cliente.FirstOrDefault(c => c.Id == id);
+            var clienteBD = _context.Cliente.Find(id);
                 
             if(clienteBD is not null)
             {
@@ -74,14 +74,6 @@ namespace ReciicerAPI.Repository
 
         public void ExcluirCliente(int id)
         {
-        //    var clienteRemover = _context.Cliente.Find(id);
-
-        //    if(clienteRemover != null)
-        //    {
-        //         _context.Cliente.Remove(clienteRemover);
-        //         _context.SaveChanges();
-        //    }
-
             var cliente = new Cliente { Id = id };
             _context.Cliente.Remove(cliente);
             _context.SaveChanges();
