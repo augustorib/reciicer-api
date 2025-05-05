@@ -4,7 +4,7 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace Reciicer.Migrations
+namespace ReciicerAPI.Migrations
 {
     /// <inheritdoc />
     public partial class AddOperator : Migration

@@ -1,15 +1,15 @@
-using Reciicer.Repository.Interface;
-using Reciicer.Models.ColetaViewModels;
-using Entities = Reciicer.Models.Entities;
-using Reciicer.Service.Cliente;
-using Reciicer.Service.TipoMaterial;
-using Reciicer.Service.Material_Coleta;
-using Reciicer.Service.UsuarioIdentity;
+using ReciicerAPI.Repository.Interface;
+using ReciicerAPI.Models.ColetaViewModels;
+using Entities = ReciicerAPI.Models.Entities;
+using ReciicerAPI.Service.Cliente;
+using ReciicerAPI.Service.TipoMaterial;
+using ReciicerAPI.Service.Material_Coleta;
+using ReciicerAPI.Service.UsuarioIdentity;
 using System.Security.Claims;
-using Reciicer.Models.HomeViewModels;
+using ReciicerAPI.Models.HomeViewModels;
 using System.Globalization;
 
-namespace Reciicer.Service.Coleta
+namespace ReciicerAPI.Service.Coleta
 {
     public class ColetaService 
     {

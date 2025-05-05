@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Reciicer.Migrations
+namespace ReciicerAPI.Migrations
 {
     /// <inheritdoc />
     public partial class AuditInformations : Migration

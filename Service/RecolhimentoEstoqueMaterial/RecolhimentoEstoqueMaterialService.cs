@@ -1,7 +1,7 @@
-using Reciicer.Repository.Interface;
-using Entities = Reciicer.Models.Entities;
+using ReciicerAPI.Repository.Interface;
+using Entities = ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Service.RecolhimentoEstoqueMaterial
+namespace ReciicerAPI.Service.RecolhimentoEstoqueMaterial
 {
     public class RecolhimentoEstoqueMaterialService
     {

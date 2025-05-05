@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Reciicer.Models.Entities
+namespace ReciicerAPI.Models.Entities
 {
     public class PontoColeta : EntidadeBase
     {

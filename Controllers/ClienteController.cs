@@ -1,44 +1,27 @@
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Models.Entities;
-using Reciicer.Service.Cliente;
+using ReciicerAPI.Service.Cliente;
 using ReciicerAPI.Models.DTOs.Cliente;
+using ReciicerAPI.Extensions;
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class ClienteController : Controller
+    [Route("api/clientes")]
+    public class ClienteController : ControllerBase
     {
         private readonly ClienteService _clienteService; 
 
         public ClienteController(ClienteService clienteService)
-        {
-            
-            _clienteService = clienteService;
- 
-            
+        {    
+            _clienteService = clienteService;           
         }
 
-        [HttpGet("Index")]
+        [HttpGet]
         public IActionResult Index()
         {
             var clientes = _clienteService.ListarCliente();
 
-            var clientesDTO = new List<ClienteReadDTO>();
-            
-            foreach (var cliente in clientes)
-            {
-                var clienteDTO = new ClienteReadDTO
-                {
-                    Id = cliente.Id,
-                    Nome = cliente.Nome,
-                    Email = cliente.Email,
-                    Telefone = cliente.Telefone,
-                    CPF = cliente.CPF
-                };
-
-                clientesDTO.Add(clienteDTO);
-            }
+            var clientesDTO = clientes.Select(c => c.ToClienteReadDTO()).ToList();
 
             return Ok(clientesDTO);
         }
@@ -48,17 +31,11 @@ namespace Reciicer.Controllers
         public IActionResult Create([FromBody] ClienteCreateDTO clienteCreateDTO)
         {
 
-            var cliente = new Cliente
-            {
-                Nome = clienteCreateDTO.Nome,
-                Email = clienteCreateDTO.Email,
-                Telefone = clienteCreateDTO.Telefone,
-                CPF = clienteCreateDTO.CPF
-            };
+            var cliente = clienteCreateDTO.ToCliente();
 
             _clienteService.RegistrarCliente(cliente);
 
-            return Content("Cliente cadastrado com sucesso!");
+            return Created($"/api/clientes/{cliente.Id}", cliente);
          }
 
         [HttpGet("{id}")]
@@ -71,30 +48,24 @@ namespace Reciicer.Controllers
                 return NotFound($"Cliente com ID {id} não encontrado.");
             }
 
-            var clienteDTO = new ClienteReadDTO
-            {
-                Id = cliente.Id,
-                Nome = cliente.Nome,
-                Email = cliente.Email,
-                Telefone = cliente.Telefone,
-                CPF = cliente.CPF
-            };
+            var clienteDTO = cliente.ToClienteReadDTO();
 
             return Ok(clienteDTO);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] ClienteUpdateDTO cliente)
+        public IActionResult Update(int id, [FromBody] ClienteUpdateDTO clienteUpdateDTO)
         {
-
-            var clienteBD = _clienteService.ObterClientePorId(id);
-
-            clienteBD.Nome = cliente.Nome;
-            clienteBD.Email = cliente.Email;
-            clienteBD.Telefone = cliente.Telefone;
-            clienteBD.CPF = cliente.CPF;
-
-            _clienteService.AtualizarCliente(clienteBD);
+            var cliente = clienteUpdateDTO.ToCliente(id);
+            
+            try
+            {
+                _clienteService.AtualizarCliente(cliente);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao atualizar cliente: {id} Detalhes: {ex.Message}");
+            }
           
             return Ok(cliente);
         }
@@ -107,30 +78,17 @@ namespace Reciicer.Controllers
             return NoContent();
         }
 
-        // [HttpGet]
-        // public IActionResult ClientePremiacao(int? premiacaoId )
-        // {     
-        //     return View(_premiacaoService.MontarViewModelPremiarCliente(premiacaoId));
-        // }
-
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public IActionResult NotificarClientePremiacao(string email, int premiacaoId)
-        // { 
+        [HttpGet("{id}/coletas")]
+        public IActionResult ClienteColetas(int id)
+        {
+            var cliente = _clienteService.ObterClientePorId(id);
             
-        //     var emailEnviado =  _emailService.EnviarEmail("guhstudante@gmail.com", "Premiação Disponível",_emailService.MontarEmailBody());
+            var coletas = cliente.Coletas?.Select(c => c.ToColetaBaseDTO()).ToList();
 
-        //     if(emailEnviado)
-        //     {
-        //        TempData["Mensagem"] = $"Email para {email} enviado!";
-        //     }
-        //     else
-        //     {
-        //         TempData["Mensagem"] = $"Falha ao enviar o email para {email}.";
-        //     }
+            var clienteResponse = cliente.ToClienteColetasDTO(coletas!);
 
-        //     return RedirectToAction("ClientePremiacao", new {premiacaoId});
-        // }
+            return Ok(clienteResponse);
+        }
 
     }
 

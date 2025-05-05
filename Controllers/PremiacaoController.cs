@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Models.Entities;
-using Reciicer.Service.Premiacao;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Service.Premiacao;
 
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     
     public class PremiacaoController : Controller

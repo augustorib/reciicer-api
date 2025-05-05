@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Diagnostics;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Models;
-using Reciicer.Service.Error;
+using ReciicerAPI.Models;
+using ReciicerAPI.Service.Error;
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     
     public class ErrorController : Controller

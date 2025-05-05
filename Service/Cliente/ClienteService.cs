@@ -1,11 +1,11 @@
 using System.Globalization;
-using Reciicer.Models.HomeViewModels;
-using Reciicer.Repository.Interface;
-using Reciicer.Service.UsuarioIdentity;
-using  Entities = Reciicer.Models.Entities;
+using ReciicerAPI.Models.HomeViewModels;
+using ReciicerAPI.Repository.Interface;
+using ReciicerAPI.Service.UsuarioIdentity;
+using  Entities = ReciicerAPI.Models.Entities;
 
 
-namespace Reciicer.Service.Cliente
+namespace ReciicerAPI.Service.Cliente
 {
     public class ClienteService 
     {
@@ -113,6 +113,11 @@ namespace Reciicer.Service.Cliente
                                     .ThenBy(g => g.Mes)
                                     .ToList();
              return clientesPorMes;
+         }
+
+         public Entities.Cliente clienteColetas(int id)
+         {
+            return _clienteRepository.ObterClientePorId(id);
          }
 
     }

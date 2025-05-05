@@ -1,7 +1,7 @@
-using Reciicer.Repository.Interface;
-using Entities = Reciicer.Models.Entities;
+using ReciicerAPI.Repository.Interface;
+using Entities = ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Service.Material_Coleta
+namespace ReciicerAPI.Service.Material_Coleta
 {
     public class Material_ColetaService
     {

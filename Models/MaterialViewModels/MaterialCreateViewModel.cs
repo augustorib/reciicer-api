@@ -1,6 +1,6 @@
-using Reciicer.Models.Entities;
+using ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Models.MaterialViewModels
+namespace ReciicerAPI.Models.MaterialViewModels
 {
     public class MaterialCreateViewModel
     {

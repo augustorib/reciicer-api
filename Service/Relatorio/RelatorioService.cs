@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using Reciicer.Data;
-using Reciicer.Models.RelatorioViewModels;
+using ReciicerAPI.Data;
+using ReciicerAPI.Models.RelatorioViewModels;
 
-namespace Reciicer.Service.Relatorio
+namespace ReciicerAPI.Service.Relatorio
 {
     public class RelatorioService
     {

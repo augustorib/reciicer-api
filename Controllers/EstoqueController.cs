@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Models.Entities;
-using Reciicer.Models.EstoqueViewModels;
-using Reciicer.Service.Estoque;
-using Reciicer.Service.EstoqueMaterial;
-using Reciicer.Service.PontoColeta;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Models.EstoqueViewModels;
+using ReciicerAPI.Service.Estoque;
+using ReciicerAPI.Service.EstoqueMaterial;
+using ReciicerAPI.Service.PontoColeta;
 
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     
     public class EstoqueController : Controller

@@ -1,8 +1,8 @@
-using Reciicer.Models.HomeViewModels;
-using Reciicer.Repository.Interface;
-using Entities = Reciicer.Models.Entities;
+using ReciicerAPI.Models.HomeViewModels;
+using ReciicerAPI.Repository.Interface;
+using Entities = ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Service.TipoMaterial
+namespace ReciicerAPI.Service.TipoMaterial
 {
     public class TipoMaterialService
     {

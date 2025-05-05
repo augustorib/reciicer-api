@@ -1,7 +1,7 @@
-using Reciicer.Models.Entities;
+using ReciicerAPI.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Reciicer.Data.Seed
+namespace ReciicerAPI.Data.Seed
 {
     public static class MaterialColetaSeed
     {

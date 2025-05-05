@@ -1,10 +1,11 @@
-using Reciicer.Data;
-using Reciicer.Models.Entities;
-using Reciicer.Repository.Interface;
+using Microsoft.EntityFrameworkCore;
+using ReciicerAPI.Data;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Repository.Interface;
 
 
 
-namespace Reciicer.Repository
+namespace ReciicerAPI.Repository
 {
     public class ClienteRepository : IClienteRepository
     {
@@ -24,7 +25,7 @@ namespace Reciicer.Repository
 
         public Cliente ObterClientePorId(int id)
         {
-            return _context.Cliente.Find(id);
+            return _context.Cliente.Include(c => c.Coletas).FirstOrDefault(c => c.Id == id)!;
         }
 
         public void RegistrarCliente(Cliente model)
@@ -37,7 +38,7 @@ namespace Reciicer.Repository
         public Cliente DetalharCliente(int id)
         {
            
-            var clienteBD = _context.Cliente.FirstOrDefault(c => c.Id == id);
+            var clienteBD = _context.Cliente.Find(id);
                 
             if(clienteBD is not null)
             {
@@ -55,6 +56,8 @@ namespace Reciicer.Repository
 
             if (clienteBD != null)
             {
+                // testar implementação de  performance 
+                //clienteBd.id = cliente.Id;
                 clienteBD.Nome = cliente.Nome;
                 clienteBD.Telefone = cliente.Telefone;
                 clienteBD.CPF = cliente.CPF;
@@ -71,14 +74,9 @@ namespace Reciicer.Repository
 
         public void ExcluirCliente(int id)
         {
-           var clienteRemover = _context.Cliente.Find(id);
-
-           if(clienteRemover != null)
-           {
-                _context.Cliente.Remove(clienteRemover);
-                _context.SaveChanges();
-           }
-
+            var cliente = new Cliente { Id = id };
+            _context.Cliente.Remove(cliente);
+            _context.SaveChanges();
         }
 
     }

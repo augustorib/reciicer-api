@@ -1,8 +1,8 @@
 using System.ComponentModel;
 using Microsoft.AspNetCore.Identity;
-using Reciicer.Models.Entities;
+using ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Models.RoleViewModels
+namespace ReciicerAPI.Models.RoleViewModels
 {
     public class UserRoleViewModel
     {

@@ -1,6 +1,6 @@
-using Reciicer.Models.Entities;
+using ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Models.EstoqueViewModels
+namespace ReciicerAPI.Models.EstoqueViewModels
 {
     public class EstoqueCreateViewModel
     {

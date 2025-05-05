@@ -1,6 +1,6 @@
 
 
-namespace Reciicer.Repository.Interface
+namespace ReciicerAPI.Repository.Interface
 {
     public interface IEmailService
     {

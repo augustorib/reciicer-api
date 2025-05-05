@@ -1,6 +1,6 @@
 
 
-namespace Reciicer.Models.HomeViewModels
+namespace ReciicerAPI.Models.HomeViewModels
 {
     public class ClientePorMes
     {

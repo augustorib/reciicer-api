@@ -1,8 +1,8 @@
-using Reciicer.Models.Entities;
+using ReciicerAPI.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Reciicer.Data.Configurations
+namespace ReciicerAPI.Data.Configurations
 {
     public class MaterialConfiguration : IEntityTypeConfiguration<Material>
     {

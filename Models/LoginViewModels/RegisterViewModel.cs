@@ -1,7 +1,7 @@
 
 using System.ComponentModel.DataAnnotations;
 
-namespace Reciicer.Models.LoginViewModels
+namespace ReciicerAPI.Models.LoginViewModels
 {
     public class RegisterViewModel
     {

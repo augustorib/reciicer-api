@@ -1,7 +1,7 @@
-using Reciicer.Models.Entities;
-using Reciicer.Models.HomeViewModels;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Models.HomeViewModels;
 
-namespace Reciicer.Repository.Interface
+namespace ReciicerAPI.Repository.Interface
 {
     public interface ITipoMaterialRepository
     {

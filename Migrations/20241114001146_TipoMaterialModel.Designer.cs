@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Reciicer.Data;
+using ReciicerAPI.Data;
 
 #nullable disable
 
-namespace Reciicer.Migrations
+namespace ReciicerAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20241114001146_TipoMaterialModel")]

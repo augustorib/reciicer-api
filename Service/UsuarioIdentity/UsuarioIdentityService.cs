@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
-using Entities = Reciicer.Models.Entities;
+using Entities = ReciicerAPI.Models.Entities;
 
-namespace Reciicer.Service.UsuarioIdentity
+namespace ReciicerAPI.Service.UsuarioIdentity
 {
     public class UsuarioIdentityService
     {

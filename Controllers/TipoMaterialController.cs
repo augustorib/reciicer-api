@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Models.Entities;
-using Reciicer.Service.TipoMaterial;
+using ReciicerAPI.Models.Entities;
+using ReciicerAPI.Service.TipoMaterial;
 
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     
     public class TipoMaterialController : Controller

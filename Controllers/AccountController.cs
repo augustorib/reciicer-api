@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Reciicer.Controllers
+namespace ReciicerAPI.Controllers
 {
     public class AccountController : Controller
     {

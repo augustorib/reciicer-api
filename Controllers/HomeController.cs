@@ -1,14 +1,14 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Reciicer.Models;
-using Reciicer.Models.HomeViewModels;
-using Reciicer.Service.Cliente;
-using Reciicer.Service.Coleta;
-using Reciicer.Service.TipoMaterial;
+using ReciicerAPI.Models;
+using ReciicerAPI.Models.HomeViewModels;
+using ReciicerAPI.Service.Cliente;
+using ReciicerAPI.Service.Coleta;
+using ReciicerAPI.Service.TipoMaterial;
 
 
-namespace Reciicer.Controllers;
+namespace ReciicerAPI.Controllers;
 
 [Authorize]
 public class HomeController : Controller
