@@ -1,4 +1,5 @@
 using ReciicerAPI.Models.DTOs.Cliente;
+using ReciicerAPI.Models.DTOs.Coleta;
 using ReciicerAPI.Models.Entities;
 
 namespace ReciicerAPI.Extensions
@@ -39,6 +40,19 @@ namespace ReciicerAPI.Extensions
                 CPF = clienteUpdateDTO.CPF
             };
         }
+
+        public static ClienteColetasDTO ToClienteColetasDTO(this Cliente cliente, IEnumerable<ColetaBaseDTO> coletas)
+        {
+            return new ClienteColetasDTO
+            {
+                Id = cliente.Id,
+                Nome = cliente.Nome ?? string.Empty,
+                Email = cliente.Email ?? string.Empty,
+                Telefone = cliente.Telefone ?? string.Empty,
+                CPF = cliente.CPF,
+                Coletas = coletas.ToList()
+            };
                
+        }
     }
 }
