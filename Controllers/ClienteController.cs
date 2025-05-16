@@ -17,9 +17,9 @@ namespace ReciicerAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var clientes = _clienteService.ListarCliente();
+            var clientes =  await _clienteService.ListarCliente();
 
             var clientesDTO = clientes.Select(c => c.ToClienteReadDTO()).ToList();
 

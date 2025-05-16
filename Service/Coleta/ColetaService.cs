@@ -149,9 +149,9 @@ namespace ReciicerAPI.Service.Coleta
         }
 
 
-        public ColetaCreateViewModel ObterColetaCreateViewModel()
+        public async Task<ColetaCreateViewModel> ObterColetaCreateViewModel()
         {
-            var clientes = _clienteService.ListarCliente();
+            var clientes = await _clienteService.ListarCliente();
             var tipoMateriais = _tipoMaterialService.ListarTipoMaterial();
           
             var coletaCreate = new ColetaCreateViewModel{
@@ -163,9 +163,9 @@ namespace ReciicerAPI.Service.Coleta
             return coletaCreate;
         }
 
-        public ColetaCreateViewModel ObterColetaCreateViewModel(int pontoColetaId)
+        public async Task<ColetaCreateViewModel> ObterColetaCreateViewModel(int pontoColetaId)
         {
-            var clientes = _clienteService.ListarCliente(pontoColetaId);
+            var clientes = await _clienteService.ListarCliente(pontoColetaId);
             var tipoMateriais = _tipoMaterialService.ListarTipoMaterial();
           
             var coletaCreate = new ColetaCreateViewModel{
@@ -177,31 +177,31 @@ namespace ReciicerAPI.Service.Coleta
             return coletaCreate;
         }
 
-        public ColetaCreateViewModel ObterColetaCreateViewModelComUltimaColeta(int clienteId)
+        public async Task<ColetaCreateViewModel> ObterColetaCreateViewModelComUltimaColeta(int clienteId)
         {
-                var coletaCreateView = ObterColetaCreateViewModel();
+            var coletaCreateView = await ObterColetaCreateViewModel();
 
-                coletaCreateView.Coleta = ObterClienteUltimaColeta(clienteId);
+            coletaCreateView.Coleta = ObterClienteUltimaColeta(clienteId);
 
-                coletaCreateView.ColetaId = coletaCreateView.Coleta.Id;
+            coletaCreateView.ColetaId = coletaCreateView.Coleta.Id;
 
             return coletaCreateView;
         }
 
-        public ColetaCreateViewModel ObterColetaCreateViewModelComUltimaColeta(int clienteId, int pontoColetaId)
+        public async Task<ColetaCreateViewModel> ObterColetaCreateViewModelComUltimaColeta(int clienteId, int pontoColetaId)
         {
-                var coletaCreateView = ObterColetaCreateViewModel(pontoColetaId);
+            var coletaCreateView = await ObterColetaCreateViewModel(pontoColetaId);
 
-                coletaCreateView.Coleta = ObterClienteUltimaColeta(clienteId);
+            coletaCreateView.Coleta = ObterClienteUltimaColeta(clienteId);
 
-                coletaCreateView.ColetaId = coletaCreateView.Coleta.Id;
+            coletaCreateView.ColetaId = coletaCreateView.Coleta.Id;
 
             return coletaCreateView;
         }
 
-        public ColetaCreateViewModel ObterColetaCreateViewModelComMaterialColeta(int clienteId, Entities.Material_Coleta? materialColeta = null)
+        public async Task<ColetaCreateViewModel> ObterColetaCreateViewModelComMaterialColeta(int clienteId, Entities.Material_Coleta? materialColeta = null)
         {
-            var viewColetaMateriasColeta = ObterColetaCreateViewModelComUltimaColeta(clienteId);
+            var viewColetaMateriasColeta = await ObterColetaCreateViewModelComUltimaColeta(clienteId);
             
             if(materialColeta != null)
                 _material_ColetaService.RegistrarMaterialColeta(materialColeta);

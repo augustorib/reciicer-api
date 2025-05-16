@@ -44,7 +44,7 @@ namespace ReciicerAPI.Service.Premiacao
         }
         
 
-        public  ClientePremiacaoViewModel MontarViewModelPremiarCliente(int? premiacaoId)
+        public async Task<ClientePremiacaoViewModel> MontarViewModelPremiarCliente(int? premiacaoId)
         {
             var premiosDisponiveis = ListarPremiacao()  
                         .Where(p => p.Ativo == true)
@@ -61,8 +61,9 @@ namespace ReciicerAPI.Service.Premiacao
            {
                 model.Premiacao = ObterPremiacaoPorId(premiacaoId.Value);
 
-                model.Clientes = _clienteService.ListarCliente()
-                                 .Where(c => c.PontuacaoTotal >= model.Premiacao.PontuacaoRequerida)
+                var clientesAsync = await _clienteService.ListarCliente();
+
+                model.Clientes = clientesAsync.Where(c => c.PontuacaoTotal >= model.Premiacao.PontuacaoRequerida)
                                  .ToList();
 
                 model.Premiacoes = premiosDisponiveis;

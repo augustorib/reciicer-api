@@ -26,19 +26,19 @@ public class HomeController : Controller
     }
 
 
-    public IActionResult Index(int? anoDashboard)
+    public async Task<IActionResult> Index(int? anoDashboard)
     {
         var anoSelectDashboard = anoDashboard ?? DateTime.Now.Year;
 
         var pontoColetaId = Convert.ToInt32(User.FindFirst("PontoColetaId")?.Value);
         
         var model = new HomeIndexViewModel{
-            TotalCliente = _clienteService.ObterTotalClientes(anoSelectDashboard, pontoColetaId),
+            TotalCliente = await _clienteService.ObterTotalClientes(anoSelectDashboard, pontoColetaId),
             TotalColeta = _coletaService.ObterTotalColeta(anoSelectDashboard, pontoColetaId),
             DataUltimaColeta = _coletaService.ObterDataUltimaColeta(pontoColetaId).ToString("dd/MM/yyyy HH:mm"),
             TipoMaterialQuantidadeCharts =  _tipoMaterialService.ObterNomeQuantidadeTipoMaterialGrafico(anoSelectDashboard, pontoColetaId),
-            Top10Clientes = _clienteService.ObterClientesOrdenadoPorPontuação(pontoColetaId),
-            ClientePorMes = _clienteService.ObterTotalClientesPorMes(anoSelectDashboard, pontoColetaId),
+            Top10Clientes = await  _clienteService.ObterClientesOrdenadoPorPontuação(pontoColetaId),
+            ClientePorMes = await _clienteService.ObterTotalClientesPorMes(anoSelectDashboard, pontoColetaId),
             ColetasPorMes = _coletaService.ObterTotalColetasPorMes(anoSelectDashboard, pontoColetaId),
             AnoSelecionado = anoSelectDashboard 
         };

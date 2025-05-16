@@ -16,9 +16,9 @@ namespace ReciicerAPI.Repository
             _context = context;
         }
 
-        public IEnumerable<Cliente> ListarCliente()
+        public async Task<IEnumerable<Cliente>> ListarCliente()
         {
-            var clientes = _context.Cliente.ToList();
+            var clientes = await _context.Cliente.ToListAsync();
 
             return clientes;
         }     

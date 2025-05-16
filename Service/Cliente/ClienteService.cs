@@ -19,16 +19,18 @@ namespace ReciicerAPI.Service.Cliente
             _usuarioIdentityService = usuarioIdentityService;
     }
 
-        public IEnumerable<Entities.Cliente> ListarCliente()
+        public async Task<IEnumerable<Entities.Cliente>> ListarCliente()
         {
-           return _clienteRepository.ListarCliente();
+           return await _clienteRepository.ListarCliente();
         }
 
-        public IEnumerable<Entities.Cliente> ListarCliente(int pontoColetaId)
+        public async Task<IEnumerable<Entities.Cliente>> ListarCliente(int pontoColetaId)
         {
-           var usuariosPontoColeta = _usuarioIdentityService.ObterUsuariosPorPontoColetaId(pontoColetaId);  
+           var usuariosPontoColeta = _usuarioIdentityService.ObterUsuariosPorPontoColetaId(pontoColetaId);
 
-           return _clienteRepository.ListarCliente().Where(c => usuariosPontoColeta.Any(u => u.Id == c.CreatedBy)).ToList();
+           var clientes = await _clienteRepository.ListarCliente();
+
+           return clientes.Where(c => usuariosPontoColeta.Any(u => u.Id == c.CreatedBy)).ToList();
         }
         
         public void RegistrarCliente(Entities.Cliente cliente)
@@ -51,48 +53,56 @@ namespace ReciicerAPI.Service.Cliente
             _clienteRepository.ExcluirCliente(id);
         }
         
-        public IEnumerable<Entities.Cliente> ObterClientesOrdenadoPorPontuação()
+        public async Task<IEnumerable<Entities.Cliente>> ObterClientesOrdenadoPorPontuação()
         {
-            var  clientesTop10 = _clienteRepository.ListarCliente()
-                                                  .OrderByDescending(c => c.PontuacaoTotal)
-                                                  .Take(10)
-                                                  .ToList();
+            var clientes = await _clienteRepository.ListarCliente();
+
+            var clientesTop10 =  clientes.OrderByDescending(c => c.PontuacaoTotal)
+                                            .Take(10)
+                                            .ToList();
             return clientesTop10;
         }
 
-        public IEnumerable<Entities.Cliente> ObterClientesOrdenadoPorPontuação(int pontoColetaId)
+        public async Task<IEnumerable<Entities.Cliente>> ObterClientesOrdenadoPorPontuação(int pontoColetaId)
         {
             var usuariosPontoColeta = _usuarioIdentityService.ObterUsuariosPorPontoColetaId(pontoColetaId);
-            var  clientesTop10 = _clienteRepository.ListarCliente()
-                                                   .Where(c => usuariosPontoColeta.Any(u => u.Id == c.CreatedBy))      
-                                                   .OrderByDescending(c => c.PontuacaoTotal)
-                                                   .Take(10)
-                                                   .ToList();
-            return clientesTop10;
+            var clientesAsync = await _clienteRepository.ListarCliente();
+
+
+            var clientes = clientesAsync.Where(c => usuariosPontoColeta.Any(u => u.Id == c.CreatedBy))      
+                                        .OrderByDescending(c => c.PontuacaoTotal)
+                                        .Take(10)
+                                        .ToList();
+            return clientes;
         }
         
-         public int ObterTotalClientes(int anoDashboard)
+         public async Task<int> ObterTotalClientes(int anoDashboard)
          {
-            return _clienteRepository.ListarCliente().Where(c => c.DataCadastro.Year == anoDashboard).Count();
+            var clientesAsync = await _clienteRepository.ListarCliente();
+
+            return clientesAsync.Where(c => c.DataCadastro.Year == anoDashboard).Count();
          }
 
-         public int ObterTotalClientes(int anoDashboard, int pontoColetaId)
+         public async Task<int> ObterTotalClientes(int anoDashboard, int pontoColetaId)
          {
             var usuariosPontoColeta = _usuarioIdentityService.ObterUsuariosPorPontoColetaId(pontoColetaId);
 
-            return _clienteRepository.ListarCliente()
-                                     .Where(c => c.DataCadastro.Year == anoDashboard &&
-                                            usuariosPontoColeta.Any(u => u.Id == c.CreatedBy))
-                                     .Count();
+            var clientesAsync = await _clienteRepository.ListarCliente();
+
+            return clientesAsync.Where(c => c.DataCadastro.Year == anoDashboard &&
+                                       usuariosPontoColeta.Any(u => u.Id == c.CreatedBy))
+                                .Count();
          }
 
          
-         public IEnumerable<ClientePorMes> ObterTotalClientesPorMes(int? anoFiltroDashBoard, int pontoColetaId)
+         public async Task<IEnumerable<ClientePorMes>> ObterTotalClientesPorMes(int? anoFiltroDashBoard, int pontoColetaId)
          {
 
             var usuariosPontoColeta = _usuarioIdentityService.ObterUsuariosPorPontoColetaId(pontoColetaId);
 
-            var query = _clienteRepository.ListarCliente().AsQueryable();
+            var clientesAsync = await _clienteRepository.ListarCliente();
+            
+            var query = clientesAsync.AsQueryable();
 
             if (anoFiltroDashBoard.HasValue)
             {
