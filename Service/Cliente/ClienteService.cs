@@ -33,14 +33,14 @@ namespace ReciicerAPI.Service.Cliente
            return clientes.Where(c => usuariosPontoColeta.Any(u => u.Id == c.CreatedBy)).ToList();
         }
         
-        public void RegistrarCliente(Entities.Cliente cliente)
+        public async Task RegistrarCliente(Entities.Cliente cliente)
         {
-            _clienteRepository.RegistrarCliente(cliente);
+            await _clienteRepository.RegistrarCliente(cliente);
         }
 
-        public Entities.Cliente ObterClientePorId(int id)
+        public async Task<Entities.Cliente> ObterClientePorId(int id)
         {
-           return _clienteRepository.ObterClientePorId(id);
+           return await _clienteRepository.ObterClientePorId(id);
         }
 
         public void AtualizarCliente(Entities.Cliente cliente)
@@ -125,9 +125,9 @@ namespace ReciicerAPI.Service.Cliente
              return clientesPorMes;
          }
 
-         public Entities.Cliente clienteColetas(int id)
+         public async Task<Entities.Cliente> clienteColetas(int id)
          {
-            return _clienteRepository.ObterClientePorId(id);
+            return await _clienteRepository.ObterClientePorId(id);
          }
 
     }

@@ -72,12 +72,12 @@ namespace ReciicerAPI.Service.Premiacao
            return model;
         }
 
-        public bool RealizarPremiacao(int premiacaoId, int clienteId)
+        public async Task<bool> RealizarPremiacao(int premiacaoId, int clienteId)
         {
             try
             {
                 var premiacao = ObterPremiacaoPorId(premiacaoId);
-                var cliente = _clienteService.ObterClientePorId(clienteId);
+                var cliente = await _clienteService.ObterClientePorId(clienteId);
 
                 var clientePremiacao = new Entities.ClientePremiacao
                 {
@@ -93,7 +93,7 @@ namespace ReciicerAPI.Service.Premiacao
 
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

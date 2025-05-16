@@ -235,7 +235,7 @@ namespace ReciicerAPI.Service.Coleta
         }
         
         //Método Para calcular a quantidade de pontos que foi feita na Coleta
-        public void CalcularPontuacaoColeta(int coletaId)
+        public async Task CalcularPontuacaoColeta(int coletaId)
         {
             var coleta = ObterColetaPorId(coletaId);
             
@@ -251,13 +251,13 @@ namespace ReciicerAPI.Service.Coleta
             AtualizarColeta(coleta);
 
             
-            CalcularClientePontuacaoTotalColeta(coleta.Id, diferencaPontuacao);                            
+            await CalcularClientePontuacaoTotalColeta(coleta.Id, diferencaPontuacao);                            
         }
 
-        public void CalcularClientePontuacaoTotalColeta(int coletaId, int diferencaPontuacao)
+        public async Task CalcularClientePontuacaoTotalColeta(int coletaId, int diferencaPontuacao)
         {       
             var coleta = _coletaRepository.ObterColetaPorId(coletaId);
-            var cliente = _clienteService.ObterClientePorId(coleta.ClienteId);     
+            var cliente = await _clienteService.ObterClientePorId(coleta.ClienteId);     
             
             if(coleta.PontuacaoGanha != 0)
             {

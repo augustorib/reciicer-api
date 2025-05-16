@@ -5,10 +5,10 @@ namespace ReciicerAPI.Repository.Interface
     public interface IClienteRepository
     {
         Task<IEnumerable<Cliente>> ListarCliente();   
-        Cliente ObterClientePorId(int id);  
-        void RegistrarCliente(Cliente cliente); 
-        void AtualizarCliente(Cliente cliente);
-        void ExcluirCliente(int id);
+        Task<Cliente> ObterClientePorId(int id);  
+        Task RegistrarCliente(Cliente cliente); 
+        Task AtualizarCliente(Cliente cliente);
+        Task ExcluirCliente(int id);
         
 
     }

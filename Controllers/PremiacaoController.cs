@@ -76,12 +76,12 @@ namespace ReciicerAPI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult PremiarCliente(int clienteId, int premiacaoId)
+        public async Task<IActionResult> PremiarCliente(int clienteId, int premiacaoId)
         { 
             
-            if(clienteId != null && premiacaoId != null)
+            if(clienteId != 0 && premiacaoId != 0)
             {
-               var premiacaoRealizada = _premiacaoService.RealizarPremiacao(premiacaoId, clienteId);
+               var premiacaoRealizada = await _premiacaoService.RealizarPremiacao(premiacaoId, clienteId);
 
                TempData["Mensagem"] = premiacaoRealizada ? "Premiação realizada com sucesso!" : "Falha ao realizar premiação!";
             }

@@ -23,16 +23,17 @@ namespace ReciicerAPI.Repository
             return clientes;
         }     
 
-        public Cliente ObterClientePorId(int id)
+        public async Task<Cliente> ObterClientePorId(int id)
         {
-            return _context.Cliente.Include(c => c.Coletas).FirstOrDefault(c => c.Id == id)!;
+            var cliente = await _context.Cliente.Include(c => c.Coletas).FirstOrDefaultAsync(c => c.Id == id);
+
+            return cliente!;
         }
 
-        public void RegistrarCliente(Cliente model)
+        public async Task RegistrarCliente(Cliente model)
         {
-           
-            _context.Cliente.Add(model);
-            _context.SaveChanges();
+            await _context.Cliente.AddAsync(model);
+            await _context.SaveChangesAsync();
         }
 
         public Cliente DetalharCliente(int id)
@@ -49,9 +50,9 @@ namespace ReciicerAPI.Repository
 
         }
 
-        public void AtualizarCliente(Cliente cliente)
+        public async Task AtualizarCliente(Cliente cliente)
         {
-            var clienteBD = _context.Cliente.Find(cliente.Id);
+            var clienteBD = await _context.Cliente.FindAsync(cliente.Id);
 
 
             if (clienteBD != null)
@@ -66,17 +67,17 @@ namespace ReciicerAPI.Repository
 
 
                 _context.Cliente.Update(clienteBD);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
 
             }
 
         }
 
-        public void ExcluirCliente(int id)
+        public async Task ExcluirCliente(int id)
         {
             var cliente = new Cliente { Id = id };
             _context.Cliente.Remove(cliente);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
     }

@@ -28,20 +28,20 @@ namespace ReciicerAPI.Controllers
 
 
         [HttpPost]
-        public IActionResult Create([FromBody] ClienteCreateDTO clienteCreateDTO)
+        public async Task<IActionResult> Create([FromBody] ClienteCreateDTO clienteCreateDTO)
         {
 
             var cliente = clienteCreateDTO.ToCliente();
 
-            _clienteService.RegistrarCliente(cliente);
+            await _clienteService.RegistrarCliente(cliente);
 
             return Created($"/api/clientes/{cliente.Id}", cliente);
          }
 
         [HttpGet("{id}")]
-        public IActionResult Read(int id)
+        public async Task<IActionResult> Read(int id)
         {  
-            var cliente = _clienteService.ObterClientePorId(id);
+            var cliente = await _clienteService.ObterClientePorId(id);
 
             if (cliente == null)
             {
@@ -79,9 +79,9 @@ namespace ReciicerAPI.Controllers
         }
 
         [HttpGet("{id}/coletas")]
-        public IActionResult ClienteColetas(int id)
+        public async Task<IActionResult> ClienteColetas(int id)
         {
-            var cliente = _clienteService.ObterClientePorId(id);
+            var cliente = await _clienteService.ObterClientePorId(id);
             
             var coletas = cliente.Coletas?.Select(c => c.ToColetaBaseDTO()).ToList();
 
